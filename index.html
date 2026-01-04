@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arjun Kadam | Full Stack Developer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Personal portfolio of Arjun Kadam, a passionate Full Stack Developer specializing in AI/ML, Java, and Spring Boot." />
+    <meta name="keywords" content="Arjun Kadam, Portfolio, Full Stack Developer, AI/ML, Machine Learning, React Developer, Node.js, Java, Spring Boot, Web Developer" />
+    <meta name="author" content="Arjun Kadam" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Arjun Kadam | Full Stack Developer" />
+    <meta property="og:description" content="Personal portfolio of Arjun Kadam, a passionate Full Stack Developer specializing in AI/ML, Java, and Spring Boot." />
+    <meta property="og:image" content="https://i.postimg.cc/MKdm6PsD/Whats-App-Image-2025-09-23-at-21-30-54-15394d08.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Arjun Kadam | Full Stack Developer" />
+    <meta property="twitter:description" content="Personal portfolio of Arjun Kadam, a passionate Full Stack Developer specializing in AI/ML, Java, and Spring Boot." />
+    <meta property="twitter:image" content="https://i.postimg.cc/MKdm6PsD/Whats-App-Image-2025-09-23-at-21-30-54-15394d08.jpg" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'navy': '#030408',         /* Rich Obsidian - Deepest Background */
+              'light-navy': '#0a0b12',   /* Dark Surface - Card Background */
+              'lightest-navy': '#161826',/* Border/Highlight */
+              'slate': '#94a3b8',        /* Body Text */
+              'light-slate': '#cbd5e1',  /* Secondary Text */
+              'lightest-slate': '#f1f5f9',/* Primary Headings */
+              'accent': '#8b5cf6',       /* Violet 500 - AI/ML Focus */
+              'off-white': '#fafafa',    /* Clean Light Background */
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Subtle mesh gradient for background depth */
+      .bg-mesh {
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.05) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.05) 0px, transparent 50%);
+      }
+      
+      .dark .bg-mesh {
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
+      }
+    </style>
+    <script>
+      // Set theme class on page load to prevent FOUC, defaulting to dark.
+      if (localStorage.theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.22",
+    "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/",
+    "react-icons": "https://aistudiocdn.com/react-icons@^5.5.0",
+    "@emailjs/browser": "https://aistudiocdn.com/@emailjs/browser@^4.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-off-white dark:bg-navy selection:bg-accent selection:text-white transition-colors duration-500">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
