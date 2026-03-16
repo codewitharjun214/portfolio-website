@@ -1,7 +1,7 @@
 import { IconType } from 'react-icons';
-import { FaJava } from 'react-icons/fa';
+import { FaJava, FaAws } from 'react-icons/fa';
 import {
-  SiReact, SiNodedotjs, SiExpress, SiMongodb, SiJavascript, SiHtml5, SiCss3, SiGit, SiGithub, SiSpringboot, SiPostman, SiHeroku, SiNetlify, SiTypescript, SiTailwindcss, SiMysql, SiPython, SiNumpy, SiPandas, SiAmazonwebservices, SiAccenture
+  SiReact, SiNodedotjs, SiExpress, SiMongodb, SiJavascript, SiHtml5, SiCss3, SiGit, SiGithub, SiSpringboot, SiPostman, SiHeroku, SiNetlify, SiTypescript, SiTailwindcss, SiMysql, SiPython, SiNumpy, SiPandas, SiAccenture
 } from 'react-icons/si';
 
 export interface Project {
@@ -39,9 +39,21 @@ export interface SocialLinks {
     phone: string;
 }
 
-export const RESUME_LINK = 'https://drive.google.com/file/d/1lBd5N996DI_dFuf-vt71XycwvYwflsRi/view?usp=drivesdk';
+export const RESUME_LINK = 'https://drive.google.com/file/d/1_geLkxmtyGtqD5ZlWvqCu9SJTWMvdHup/view?usp=drivesdk';
 
 export const EXPERIENCES: Experience[] = [
+  {
+    role: 'Full Stack Developer (Freelance)',
+    company: 'Sunrise Industries',
+    companyLink: '#',
+    date: 'Jan 2024 - Present',
+    description: [
+      'Designed and implemented a comprehensive industrial management system to automate inventory tracking and order processing.',
+      'Developed a real-time dashboard using React and Socket.io for monitoring production metrics and supply chain status.',
+      'Optimized database queries in MongoDB, resulting in a 40% improvement in data retrieval speeds for large inventory datasets.',
+      'Integrated secure payment gateways and automated invoice generation for B2B transactions.'
+    ]
+  },
   {
     role: 'Full Stack MERN Intern',
     company: 'Sanyu Infotech Pvt. Ltd.',
@@ -82,19 +94,19 @@ export const PROJECTS: Project[] = [
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop',
   },
   {
-    title: 'Code Snippet Manager',
-    description: 'A professional application for developers to save, organize, and search for their favorite code snippets with syntax highlighting.',
-    tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind'],
-    githubLink: 'https://github.com/codewitharjun214/Code-Snippet-Manager',
-    liveLink: 'https://github.com/codewitharjun214/Code-Snippet-Manager',
-    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop',
+    title: 'Sunrise Industries',
+    description: 'A specialized industrial management platform designed for Sunrise Industries to streamline operations, track inventory, and manage client orders with real-time updates.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    githubLink: 'https://github.com/codewitharjun214',
+    liveLink: 'https://github.com/codewitharjun214',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
     { name: 'React', issuer: 'Lets Upgrade', icon: SiReact },
     { name: 'MongoDB for Developers', issuer: 'MongoDB University', icon: SiMongodb },
-    { name: 'AWS Solution Architecture', issuer: 'AWS Training', icon: SiAmazonwebservices },
+    { name: 'AWS Solution Architecture', issuer: 'AWS Training', icon: FaAws },
     { name: 'Developer Job Simulation', issuer: 'Accenture / Forage', icon: SiAccenture },
 ];
 

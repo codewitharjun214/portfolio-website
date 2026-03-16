@@ -67,11 +67,11 @@
       }
     </style>
     <script>
-      // Set theme class on page load to prevent FOUC, defaulting to dark.
-      if (localStorage.theme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
+      // Set theme class on page load to prevent FOUC, defaulting to light.
+      if (localStorage.theme === 'dark') {
         document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">

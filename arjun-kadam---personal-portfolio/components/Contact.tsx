@@ -8,30 +8,55 @@ const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const serviceID = (import.meta as any).env?.VITE_EMAILJS_SERVICE_ID || 'service_1woslov';
-  const templateID = (import.meta as any).env?.VITE_EMAILJS_TEMPLATE_ID || 'template_yhl0igu';
-  const publicKey = (import.meta as any).env?.VITE_EMAILJS_PUBLIC_KEY || '4ssf8cenOA5wpwaio';
+  const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_1woslov';
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_yhl0igu';
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '4ssf8cenOA5wpwaio';
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!serviceID || !templateID || !publicKey || !form.current) {
+        console.error('EmailJS configuration is missing');
         setStatus('error');
         setTimeout(() => setStatus('idle'), 5000);
         return;
     }
     
     setStatus('loading');
+
+    const formData = new FormData(form.current);
+    const data = {
+      from_name: formData.get('from_name'),
+      from_email: formData.get('from_email'),
+      message: formData.get('message'),
+    };
     
-    emailjs.sendForm(serviceID, templateID, form.current, publicKey)
-      .then((result) => {
-          setStatus('success');
-          form.current?.reset();
-          setTimeout(() => setStatus('idle'), 5000);
-      }, (error) => {
-          setStatus('error');
-          setTimeout(() => setStatus('idle'), 5000);
-      });
+    try {
+      // Save to localStorage for demo/local view
+      const existingMessages = JSON.parse(localStorage.getItem('contact_messages') || '[]');
+      const newMessage = {
+        id: Date.now(),
+        ...data,
+        timestamp: new Date().toISOString(),
+      };
+      localStorage.setItem('contact_messages', JSON.stringify([...existingMessages, newMessage]));
+
+      // Send via EmailJS
+      await emailjs.sendForm(serviceID, templateID, form.current, publicKey);
+
+      // Play notification sound
+      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+      audio.play().catch(err => console.log('Audio play failed:', err));
+
+      console.log('Message saved locally and email sent!');
+      setStatus('success');
+      form.current?.reset();
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   const contactInfo = [
@@ -117,11 +142,11 @@ const Contact: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-mono text-gray-600 dark:text-slate ml-1">Full Name</label>
-                  <input type="text" name="user_name" placeholder="John Doe" required className="w-full bg-white dark:bg-navy p-3 rounded-md border border-gray-300 dark:border-lightest-navy focus:outline-none focus:border-accent text-gray-900 dark:text-lightest-slate transition-colors" />
+                  <input type="text" name="from_name" placeholder="John Doe" required className="w-full bg-white dark:bg-navy p-3 rounded-md border border-gray-300 dark:border-lightest-navy focus:outline-none focus:border-accent text-gray-900 dark:text-lightest-slate transition-colors" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-mono text-gray-600 dark:text-slate ml-1">Email Address</label>
-                  <input type="email" name="user_email" placeholder="john@example.com" required className="w-full bg-white dark:bg-navy p-3 rounded-md border border-gray-300 dark:border-lightest-navy focus:outline-none focus:border-accent text-gray-900 dark:text-lightest-slate transition-colors" />
+                  <input type="email" name="from_email" placeholder="john@example.com" required className="w-full bg-white dark:bg-navy p-3 rounded-md border border-gray-300 dark:border-lightest-navy focus:outline-none focus:border-accent text-gray-900 dark:text-lightest-slate transition-colors" />
                 </div>
               </div>
               <div className="space-y-2">

@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
         Designed & Built by Arjun Kadam
       </p>
       <p className="font-mono text-xs text-gray-700 dark:text-slate mt-1">
-        © {new Date().getFullYear()}. All Rights Reserved.
+        © {new Date().getFullYear()}. All Rights Reserved. | <a href="/admin" className="hover:text-accent">Admin</a>
       </p>
     </footer>
   );

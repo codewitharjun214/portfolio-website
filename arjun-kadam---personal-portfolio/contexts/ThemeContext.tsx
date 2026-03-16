@@ -16,10 +16,10 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       if (storedTheme) {
         return storedTheme;
       }
-      // Default to dark mode if no theme is stored
-      return 'dark';
+      // Default to light mode if no theme is stored
+      return 'light';
     }
-    return 'dark'; // Default for SSR or non-browser env
+    return 'light'; // Default for SSR or non-browser env
   });
 
   useEffect(() => {

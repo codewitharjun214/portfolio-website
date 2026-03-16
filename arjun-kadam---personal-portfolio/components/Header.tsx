@@ -68,19 +68,9 @@ const Header: React.FC = () => {
           >
             Resume
           </a>
-          <button 
-            onClick={toggleTheme} 
-            aria-label="Toggle theme" 
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-lightest-navy text-gray-800 dark:text-light-slate hover:text-accent transition-all duration-300"
-          >
-            {theme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
-          </button>
         </div>
 
         <div className="md:hidden flex items-center space-x-4">
-           <button onClick={toggleTheme} aria-label="Toggle theme" className="p-2 text-gray-800 dark:text-light-slate hover:text-accent transition-colors duration-300">
-            {theme === 'light' ? <FiMoon size={22} /> : <FiSun size={22} />}
-          </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-accent focus:outline-none p-1"
