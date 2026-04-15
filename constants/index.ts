@@ -39,7 +39,7 @@ export interface SocialLinks {
     phone: string;
 }
 
-export const RESUME_LINK = 'https://drive.google.com/file/d/1_geLkxmtyGtqD5ZlWvqCu9SJTWMvdHup/view?usp=drivesdk';
+export const RESUME_LINK = 'https://drive.google.com/file/d/1_Vyv-bCjR7InX--dP4rZEeZOdmUhVNBs/view?usp=drivesdk';
 
 export const EXPERIENCES: Experience[] = [
   {
